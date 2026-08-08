@@ -1,0 +1,2 @@
+# Caselet1_LegalEase_AIsummarizer
+CaseStudy
