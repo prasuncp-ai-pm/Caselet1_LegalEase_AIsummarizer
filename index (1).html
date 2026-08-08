@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LegalEase | QuickSummarizer Caselet</title>
+<meta name="description" content="LegalEase QuickSummarizer — Business Value Modeling for a Generative AI Feature">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+:root{
+ --navy:#07152f;--navy2:#0b2147;--blue:#2458d8;--blue2:#3f6ff0;--purple:#6741df;
+ --ink:#14213d;--muted:#61708a;--line:#dce4ef;--bg:#f7f9fd;--white:#fff;
+ --green:#1caa83;--greenbg:#e9f8f3;--amber:#e48a10;--amberbg:#fff5e5;
+ --purplebg:#f1edff;--red:#d94b5b;--shadow:0 5px 18px rgba(24,44,78,.06);--radius:10px
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;font-size:13px;line-height:1.48}
+button,input{font:inherit}button{cursor:pointer}h1,h2,h3,h4{font-family:"Space Grotesk",sans-serif;letter-spacing:-.025em;margin:0}p{margin:5px 0;color:#4f5e76}
+.layout{min-height:100vh}.sidebar{position:fixed;left:0;top:0;bottom:0;width:178px;background:linear-gradient(180deg,#07152f 0%,#04122b 100%);color:#fff;padding:17px 12px;z-index:30}
+.logo{display:flex;align-items:center;gap:7px;padding:6px 8px 22px;font:700 20px "Space Grotesk";letter-spacing:-.04em}
+.logo-icon{color:#9b7cff;font-size:23px}.nav{display:grid;gap:4px}.nav button{width:100%;border:0;background:transparent;color:#c3cde0;text-align:left;padding:9px 10px;border-radius:8px;display:flex;align-items:center;gap:9px;font-weight:600;font-size:11px}.nav button i{width:15px;text-align:center;color:#b9c7df}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#15458f,#123a7b);color:#fff}.nav button.active{box-shadow:0 3px 12px rgba(37,99,235,.2)}
+.side-promo{position:absolute;left:17px;right:17px;bottom:28px;background:linear-gradient(145deg,#191f78,#20206b);border:1px solid #4431aa;border-radius:9px;padding:13px 11px;min-height:136px;overflow:hidden}.side-promo .spark{position:absolute;right:10px;bottom:8px;font-size:32px;color:#c7b8ff}.side-promo .tag{color:#c6b7ff;font-weight:700;font-size:11px}.side-promo strong{display:block;font-size:12px;margin:8px 0 4px}.side-promo p{color:#e1e5ff;font-size:10px;line-height:1.45}
+main{margin-left:178px;min-height:100vh}.topbar{height:58px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:20}.crumb{font-size:11px;color:#7a879a}.top-actions{display:flex;gap:7px}.btn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:7px 10px;font-size:11px;font-weight:700;color:var(--ink)}.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.page{max-width:1150px;margin:auto;padding:24px 28px 40px}.hero{display:grid;grid-template-columns:1fr 245px;gap:20px}.eyebrow{font-size:10px;color:var(--blue);font-weight:800;letter-spacing:.1em;text-transform:uppercase}.hero h1{font-size:27px;line-height:1.1;margin:5px 0 8px}.hero-copy{font-size:12px;max-width:720px}.objective{border:1px solid #a9c8ff;border-radius:9px;padding:13px 14px;background:linear-gradient(180deg,#f8fbff,#fff)}.objective-top{display:flex;gap:9px;align-items:center;color:var(--blue);font-weight:800}.objective-icon{font-size:24px}.objective p{font-size:10px;margin-top:7px}
+.section{margin-top:17px;scroll-margin-top:72px}.section-title{display:flex;align-items:center;gap:7px;color:#17459d;margin-bottom:8px}.section-title i{font-size:14px}.section-title h2{font-size:15px}.section-title small{font:500 10px "DM Sans";color:var(--muted);margin-left:auto}
+.grid{display:grid;gap:9px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px;box-shadow:var(--shadow)}.card h3{font-size:12px}.card-head{display:flex;gap:8px;align-items:center;margin-bottom:7px}.card-icon{width:25px;height:25px;border-radius:7px;background:#edf3ff;color:var(--blue);display:grid;place-items:center;font-size:11px}.card-icon.green{background:var(--greenbg);color:var(--green)}.card-icon.amber{background:var(--amberbg);color:var(--amber)}.card-icon.purple{background:var(--purplebg);color:var(--purple)}
+.card ul{padding-left:16px;margin:5px 0 0;color:#4d5b71;font-size:10.5px}.card li{margin:3px 0}.micro{font-size:10px;color:var(--muted)}
+.persona-strip{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 5px}.persona{padding:8px 11px;border-right:1px solid #e2e8f0}.persona:last-child{border-right:0}.person-top{display:flex;align-items:center;gap:7px}.avatar{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#eaf1ff;color:var(--blue);font-weight:800;font-size:10px;overflow:hidden}
+.avatar.profile-blue{background:linear-gradient(135deg,#e7efff,#cddcff);color:#2458d8}
+.avatar.profile-purple{background:linear-gradient(135deg,#f0eaff,#ddd2ff);color:#6741df}
+.avatar.profile-navy{background:linear-gradient(135deg,#e3eafa,#cbd6eb);color:#163a72}
+.avatar.profile-green{background:linear-gradient(135deg,#e4f8f1,#c9eee1);color:#15916f}
+.avatar.profile-orange{background:linear-gradient(135deg,#fff1dd,#ffe0b2);color:#d97706}
+.avatar.profile-cyan{background:linear-gradient(135deg,#e2f8fb,#c9edf2);color:#0891b2}
+.avatar i{font-size:13px}
+.avatar.green{background:#e8f8f2;color:var(--green)}.persona strong{font-size:10px;color:#17479f}.persona p{font-size:9px;line-height:1.4}.benefit{font-size:9px;color:#263752}.benefit b{color:#111d32}
+.internal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.external-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.role-card{min-height:145px}.role-label{float:right;font-size:8px;padding:3px 6px;border-radius:99px;background:#edf3ff;color:#2458d8;font-weight:800}.role-card.external{border-top:2px solid var(--green)}.role-card.internal{border-top:2px solid var(--blue)}.role-name{font-weight:800;font-size:12px}.role-title{font-size:9px;color:var(--muted)}.role-section{font-size:9px;font-weight:800;margin-top:7px;color:#33445e}.role-card ul{font-size:9px}
+.callout{background:#f3f7ff;border-left:3px solid var(--blue);border-radius:6px;padding:10px 12px}.callout.green{background:#f1fbf7;border-color:var(--green)}.callout.amber{background:#fff8eb;border-color:var(--amber)}
+.case-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:9px}.case-mini{display:grid;grid-template-columns:1fr 1fr;gap:9px}.case-mini .card{min-height:130px}
+table{width:100%;border-collapse:collapse;font-size:9px}th,td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}th{font-size:8px;color:#53627a;background:#f8fafc;text-transform:uppercase;letter-spacing:.04em}tr:last-child td{border-bottom:0}
+.working{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:9px;background:#fff;overflow:hidden}.work{padding:12px;border-right:1px solid var(--line);min-height:116px}.work:last-child{border:0}.work-num{font-size:8px;font-weight:800;color:var(--blue)}.work h3{font-size:11px;margin:6px 0}.work p{font-size:9px}
+.press{display:grid;grid-template-columns:1.1fr .9fr;gap:9px}.headline{font-size:17px!important;line-height:1.2!important}.usp{display:grid;gap:7px}.usp-item{display:flex;gap:8px;align-items:flex-start;font-size:10px}.usp-item i{color:var(--purple);margin-top:2px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.metric{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px}.metric-value{font:700 19px "Space Grotesk";color:var(--blue)}.metric-value.green{color:var(--green)}.metric-value.amber{color:var(--amber)}.metric-value.purple{color:var(--purple)}.metric-label{font-size:9px;font-weight:800}.metric-note{font-size:8px;color:var(--muted)}
+.calculator{display:grid;grid-template-columns:1fr .85fr;gap:9px}.control{margin:9px 0}.control-row{display:flex;justify-content:space-between;font-size:10px;font-weight:700}.control-row output{color:var(--blue)}input[type=range]{width:100%;accent-color:var(--blue);margin:3px 0}.calc-result{background:linear-gradient(145deg,#0b1e43,#123e7d);color:#fff;border-radius:9px;padding:15px}.calc-result p{color:#cbd8eb;font-size:10px}.big{font:700 28px "Space Grotesk";line-height:1;margin:5px 0 8px}.calc-line{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:9px}.status{display:inline-block;border-radius:99px;padding:4px 7px;background:#dcf8ed;color:#047857;font-size:8px;font-weight:800;margin-top:9px}
+.poc{background:#fff;border:1px solid #d6c9ff;border-radius:9px;overflow:hidden}.poc-head{background:#fbf9ff;border-bottom:1px solid #e6ddff;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}.poc-head strong{font-size:12px}.poc-head small{font-size:9px;color:var(--muted)}.model-tag{background:#f0eaff;color:#6541d4;border:1px solid #d5c9ff;border-radius:6px;padding:4px 7px;font-size:8px;font-weight:800}
+.poc-body{display:grid;grid-template-columns:1fr 1fr;min-height:380px}.doc-pane{padding:10px;background:#f8fafc;border-right:1px solid var(--line)}.doc-toolbar{display:flex;justify-content:space-between;align-items:center;font-size:8px;color:var(--muted);margin-bottom:7px}.paper{height:330px;background:#fff;border:1px solid #dce3ed;border-radius:6px;padding:22px 19px;overflow:hidden;box-shadow:0 2px 7px rgba(15,23,42,.04)}.paper h4{text-align:center;font-size:11px;margin-bottom:14px}.paper p{font:9px/1.65 Georgia,serif;color:#45536a}.paper .clause{font-weight:700;color:#1b2940}
+.ai-pane{padding:10px;display:flex;flex-direction:column}.tabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:9px}.tab{border:0;background:transparent;padding:7px 8px;font-size:8px;font-weight:800;color:var(--muted);border-bottom:2px solid transparent}.tab.active{color:var(--blue);border-color:var(--blue)}.tab-content{flex:1}.summary-box{background:#f5f9ff;border:1px solid #d8e5fa;border-radius:7px;padding:9px}.summary-box strong{font-size:10px}.summary-box p{font-size:9px}.key-list{display:grid;gap:5px;margin-top:8px}.key{display:flex;gap:6px;font-size:8.5px}.key i{color:var(--green);margin-top:2px}.risk{padding:7px;border-left:2px solid var(--amber);background:#fff9ed;border-radius:5px;font-size:8.5px;margin-top:6px}.qa{display:flex;gap:5px;margin-top:8px}.qa input{flex:1;border:1px solid var(--line);border-radius:6px;padding:7px;font-size:9px}.qa button{width:30px;border:0;border-radius:6px;background:linear-gradient(135deg,#6741df,#7c54ee);color:#fff}.answer{display:none;padding:8px;background:#fff;border:1px solid #dbe4f0;border-radius:6px;font-size:9px;margin-top:6px}.answer.show{display:block}.disclaimer{font-size:7.5px;color:var(--muted);margin-top:6px}
+.impact{display:grid;grid-template-columns:1fr .72fr;gap:9px}.impact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.impact-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px}.impact-card i{color:var(--blue);font-size:12px}.impact-card strong{display:block;color:#17479f;font:700 17px "Space Grotesk";margin-top:3px}.impact-card small{font-size:8px}.decision{background:linear-gradient(180deg,#fbf9ff,#fff);border:1px solid #d9ccff;border-radius:9px;padding:12px}.decision h3{color:#4f2cd3;font-size:14px}.decision .bigdecision{font:700 19px "Space Grotesk";color:#3920c0;margin:5px 0}.decision p{font-size:9px}
+.questions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.question{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px}.question strong{font-size:9px}.question p{font-size:8.5px}
+.footer{margin-top:24px;padding:14px 0 35px;border-top:1px solid var(--line);font-size:8px;color:var(--muted)}
+.mobile-nav{display:none}
+@media(max-width:1050px){.sidebar{width:155px}.sidebar .side-promo{display:none}main{margin-left:155px}.page{padding:20px}.hero{grid-template-columns:1fr}.internal-grid{grid-template-columns:repeat(2,1fr)}.external-grid{grid-template-columns:repeat(2,1fr)}.g4,.metrics{grid-template-columns:repeat(2,1fr)}.working{grid-template-columns:1fr 1fr}.work{border-bottom:1px solid var(--line)}.poc-body,.calculator,.impact,.press,.case-grid{grid-template-columns:1fr}.doc-pane{border-right:0;border-bottom:1px solid var(--line)}}
+@media(max-width:720px){.sidebar{display:none}main{margin-left:0}.topbar{padding:0 13px}.top-actions .secondary{display:none}.mobile-nav{display:flex;gap:5px;overflow:auto}.mobile-nav button{white-space:nowrap;border:0;background:#123e80;color:#fff;border-radius:6px;padding:6px 8px;font-size:8px}.page{padding:17px 12px}.hero h1{font-size:25px}.g2,.g3,.g4,.internal-grid,.external-grid,.metrics,.questions,.impact-cards{grid-template-columns:1fr}.persona-strip{grid-template-columns:1fr 1fr}.persona:nth-child(2){border-right:0}.persona:nth-child(3){border-top:1px solid #e2e8f0}.working{grid-template-columns:1fr}.work{border-right:0}.poc-body{grid-template-columns:1fr}}
+@media print{.sidebar,.topbar,.mobile-nav,.top-actions{display:none!important}main{margin:0}.page{max-width:none;padding:12px}.section{break-inside:avoid}.card,.poc,.metric{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="logo"><span class="logo-icon"><i class="fa-solid fa-brain"></i></span>LegalEase</div>
+  <nav class="nav">
+    <button class="active" data-target="overview"><i class="fa-solid fa-house"></i>Overview</button>
+    <button data-target="caselet"><i class="fa-regular fa-file-lines"></i>Caselet Details</button>
+    <button data-target="value"><i class="fa-solid fa-circle-dollar-to-slot"></i>Business Value</button>
+    <button data-target="personas"><i class="fa-solid fa-users"></i>User Personas</button>
+    <button data-target="poc"><i class="fa-solid fa-flask"></i>PoC Demo</button>
+    <button data-target="metrics"><i class="fa-solid fa-chart-column"></i>Metrics Impact</button>
+    <button data-target="learnings"><i class="fa-solid fa-graduation-cap"></i>Key Learnings</button>
+  </nav>
+  <div class="side-promo"><span class="tag"><i class="fa-solid fa-sparkles"></i> QuickSummarizer</span><strong>Understand legal documents in seconds</strong><p>AI-powered summarization and document Q&A for SME teams.</p><span class="spark">✦</span></div>
+</aside>
+
+<main>
+<header class="topbar"><div class="crumb">Caselet / Business Value Modeling for Generative AI Feature</div></header>
+<div class="mobile-nav"><button data-target="overview">Overview</button><button data-target="caselet">Caselet</button><button data-target="value">Value</button><button data-target="personas">Personas</button><button data-target="poc">PoC</button><button data-target="metrics">Metrics</button></div>
+
+<div class="page">
+<section class="hero" id="overview">
+<div><div class="eyebrow">Amazon Working Backwards + GenAI Product Case</div><h1>Caselet: Business Value Modeling for<br>Generative AI Feature</h1><p class="hero-copy">You are a Product Manager at LegalEase, a SaaS platform that helps businesses store and manage their legal documents. Your company is considering building a new Generative AI feature called <strong>“QuickSummarizer”</strong> that helps users summarize long legal documents and answer questions about their content.</p></div>
+<div class="objective"><div class="objective-top"><i class="fa-solid fa-bullseye objective-icon"></i><span>Objective</span></div><p>Evaluate the business value of building QuickSummarizer and recommend whether to proceed, pivot, or stop.</p></div>
+</section>
+
+<section class="section">
+<div class="grid g3">
+<div class="card"><div class="card-head"><span class="card-icon"><i class="fa-solid fa-user-tie"></i></span><h3>Your Role</h3></div><ul><li>Product Manager at LegalEase</li><li>Own problem definition, user value, business value and recommendation</li><li>Work cross-functionally with Engineering, Design, Data and Finance</li></ul></div>
+<div class="card"><div class="card-head"><span class="card-icon green"><i class="fa-solid fa-circle-check"></i></span><h3>Key Actions</h3></div><ul><li>Define the user problem and opportunity</li><li>Model the business value and costs</li><li>Identify risks and assumptions</li><li>Recommend a decision with rationale</li></ul></div>
+<div class="card"><div class="card-head"><span class="card-icon purple"><i class="fa-solid fa-flag"></i></span><h3>Primary Objective</h3></div><p>Determine if QuickSummarizer creates enough business value to justify investment and drive measurable impact on growth, retention and efficiency.</p></div>
+</div></section>
+
+<section class="section" id="caselet">
+<div class="section-title"><i class="fa-solid fa-file-lines"></i><h2>Caselet Summary</h2></div>
+<div class="case-grid">
+<div class="card"><p>LegalEase users often store long and complex legal documents (e.g., NDAs, MSAs, contracts). Users struggle to quickly understand key terms, obligations and risks. Support teams also spend significant time answering repetitive document-related questions.</p>
+<div class="case-mini" style="margin-top:9px">
+<div class="card"><div class="card-head"><span class="card-icon"><i class="fa-solid fa-list-check"></i></span><h3>Key Context</h3></div><ul><li><strong>Product:</strong> LegalEase SaaS platform for legal document management</li><li><strong>Proposed Feature:</strong> QuickSummarizer — Generative AI feature</li><li><strong>Users:</strong> Legal, Procurement, Sales and Business Teams</li><li><strong>Business Goals:</strong> Improve retention, reduce support costs, increase product stickiness</li></ul></div>
+<div class="card"><div class="card-head"><span class="card-icon purple"><i class="fa-solid fa-wand-magic-sparkles"></i></span><h3>Success Hypothesis</h3></div><p>If we help users summarize and ask questions about their legal documents instantly, they will find more value in LegalEase, use it more frequently, rely less on support, and be less likely to churn.</p></div>
+</div></div>
+<div class="card"><div class="card-head"><span class="card-icon amber"><i class="fa-solid fa-triangle-exclamation"></i></span><h3>Key Assumptions</h3></div><ul><li>Current annual recurring revenue (ARR): ~₹30 Cr</li><li>Current churn rate: ~10% annually</li><li>Support cost related to legal queries: ~₹3.5 Cr annually</li><li>AI feature drives measurable engagement uplift</li><li>Adoption reaches critical mass within 6–9 months</li><li>Model excludes implementation and ongoing AI costs</li></ul><div class="callout amber" style="margin-top:10px"><strong>PM watch-out</strong><p>These are caselet assumptions. In a real investment memo, validate every input before using it as a forecast.</p></div></div>
+</div>
+
+<div class="section" style="margin-top:10px">
+<div class="grid g2">
+<div class="card"><div class="card-head"><span class="card-icon"><i class="fa-solid fa-chart-line"></i></span><h3>Business Value Model — Caselet Estimates</h3></div>
+<table><thead><tr><th>Impact Area</th><th>Assumption</th><th>Estimate</th></tr></thead><tbody>
+<tr><td><strong>Retention Impact</strong></td><td>5% reduction in churn due to increased value and engagement</td><td><strong>~₹1.5 Cr</strong> retained ARR over 18 months</td></tr>
+<tr><td><strong>Support Cost Savings</strong></td><td>15% reduction in legal-document related tickets</td><td><strong>~₹50 Lakh</strong> annual savings</td></tr>
+<tr><td><strong>Total Business Value</strong></td><td></td><td><strong>~₹2.0 Cr</strong> over 18 months</td></tr>
+</tbody></table><div class="micro" style="margin-top:5px">Directional caselet estimates; not audited actuals.</div></div>
+<div class="card"><div class="card-head"><span class="card-icon green"><i class="fa-solid fa-circle-question"></i></span><h3>Original Reflection Questions</h3></div>
+<ol style="margin:5px 0;padding-left:17px;font-size:9px;color:#4d5b71"><li>How effectively did the PM articulate alignment with LegalEase's underlying business goals beyond “growth”?</li><li>How does each proposed metric connect to product objectives and business value?</li><li>What tangible financial benefits are quantified and how does the PM counter spend concerns?</li><li>Assuming approval, what should the PM do next?</li></ol></div>
+</div></div>
+</section>
+
+<section class="section" id="personas">
+<div class="section-title"><i class="fa-solid fa-users"></i><h2>User Personas Impacted</h2><small>Internal + External</small></div>
+<div class="internal-grid">
+<div class="card role-card internal"><span class="role-label">INTERNAL</span><div class="person-top"><div class="avatar profile-blue"><i class="fa-solid fa-user-tie"></i></div><div><div class="role-name">Anya Sharma</div><div class="role-title">Senior Product Manager</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Prove the feature is a retention lever.</p><div class="role-section">ACTIONS</div><ul><li>Connect pain to churn</li><li>Model value and define KPIs</li><li>Drive MVP decision</li></ul></div>
+<div class="card role-card internal"><span class="role-label">INTERNAL</span><div class="person-top"><div class="avatar profile-purple"><i class="fa-solid fa-laptop-code"></i></div><div><div class="role-name">Rohan Mehta</div><div class="role-title">Tech Lead</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Prove GenAI feasibility and safety.</p><div class="role-section">ACTIONS</div><ul><li>Assess LLM architecture</li><li>Estimate engineering effort</li><li>Design quality controls</li></ul></div>
+<div class="card role-card internal"><span class="role-label">INTERNAL</span><div class="person-top"><div class="avatar profile-navy"><i class="fa-solid fa-user-shield"></i></div><div><div class="role-name">Mr. Khanna</div><div class="role-title">CEO</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Drive immediate acquisition and revenue.</p><div class="role-section">ACTIONS</div><ul><li>Challenge feature ROI</li><li>Question upsell potential</li><li>Exercise final veto</li></ul></div>
+<div class="card role-card internal"><span class="role-label">INTERNAL</span><div class="person-top"><div class="avatar profile-green"><i class="fa-solid fa-coins"></i></div><div><div class="role-name">Sanjay Gupta</div><div class="role-title">Head of Finance</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Ensure value exceeds investment.</p><div class="role-section">ACTIONS</div><ul><li>Challenge build cost</li><li>Model AI/API run cost</li><li>Test payback</li></ul></div>
+<div class="card role-card internal"><span class="role-label">INTERNAL</span><div class="person-top"><div class="avatar profile-orange"><i class="fa-solid fa-handshake"></i></div><div><div class="role-name">Priya Singh</div><div class="role-title">Head of Sales</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Reduce customer losses.</p><div class="role-section">ACTIONS</div><ul><li>Bring churn evidence</li><li>Validate customer pain</li><li>Support retention thesis</li></ul></div>
+<div class="card role-card internal"><span class="role-label">INTERNAL</span><div class="person-top"><div class="avatar profile-cyan"><i class="fa-solid fa-headset"></i></div><div><div class="role-name">Support Agents</div><div class="role-title">Internal Support</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Reduce repetitive legal-document queries.</p><div class="role-section">ACTIONS</div><ul><li>Deflect routine questions</li><li>Escalate complex issues</li><li>Provide feedback loops</li></ul></div>
+</div>
+<div style="height:8px"></div>
+<div class="external-grid">
+<div class="card role-card external"><span class="role-label" style="background:var(--greenbg);color:var(--green)">EXTERNAL</span><div class="person-top"><div class="avatar green"><i class="fa-solid fa-scale-balanced"></i></div><div><div class="role-name">In-House Counsel</div><div class="role-title">SME Legal Team</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Triage documents and focus on high-risk issues.</p><div class="role-section">ACTIONS</div><ul><li>Summarize</li><li>Verify clauses</li><li>Escalate legal decisions</li></ul></div>
+<div class="card role-card external"><span class="role-label" style="background:var(--greenbg);color:var(--green)">EXTERNAL</span><div class="person-top"><div class="avatar green"><i class="fa-solid fa-cart-shopping"></i></div><div><div class="role-name">Procurement Manager</div><div class="role-title">SME Business Team</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Understand vendor obligations and risks.</p><div class="role-section">ACTIONS</div><ul><li>Review key terms</li><li>Ask contract questions</li><li>Escalate material risks</li></ul></div>
+<div class="card role-card external"><span class="role-label" style="background:var(--greenbg);color:var(--green)">EXTERNAL</span><div class="person-top"><div class="avatar green"><i class="fa-solid fa-handshake"></i></div><div><div class="role-name">Sales Manager</div><div class="role-title">SME Commercial Team</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Understand customer contract implications.</p><div class="role-section">ACTIONS</div><ul><li>Review commercial clauses</li><li>Prepare legal questions</li><li>Identify approval dependencies</li></ul></div>
+<div class="card role-card external"><span class="role-label" style="background:var(--greenbg);color:var(--green)">EXTERNAL</span><div class="person-top"><div class="avatar green"><i class="fa-solid fa-headset"></i></div><div><div class="role-name">Support Agents</div><div class="role-title">Client Side</div></div></div><div class="role-section">OBJECTIVE</div><p class="micro">Resolve routine document questions faster.</p><div class="role-section">ACTIONS</div><ul><li>Search clauses</li><li>Answer routine queries</li><li>Escalate legal-risk decisions</li></ul></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><i class="fa-solid fa-route"></i><h2>Working Backwards Narrative</h2></div>
+<div class="working">
+<div class="work"><div class="work-num">01 · CUSTOMER PAIN</div><h3>“I can store it, but I can't understand it.”</h3><p>SMEs struggle with dense legal language.</p></div>
+<div class="work"><div class="work-num">02 · CUSTOMER PROMISE</div><h3>Understand in minutes</h3><p>Summaries, obligations, risks and key terms in plain language.</p></div>
+<div class="work"><div class="work-num">03 · PRODUCT</div><h3>QuickSummarizer</h3><p>Source-aware GenAI summarization + Q&A.</p></div>
+<div class="work"><div class="work-num">04 · OUTCOME</div><h3>More value → less churn</h3><p>Higher stickiness and lower support dependency.</p></div>
+<div class="work"><div class="work-num">05 · PROOF</div><h3>Controlled measurement</h3><p>Prove incremental value before scaling.</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><i class="fa-solid fa-newspaper"></i><h2>Customer-facing Press Release</h2></div>
+<div class="press">
+<div class="card"><span class="pill">FOR IMMEDIATE RELEASE</span><h2 class="headline" style="margin-top:7px">LegalEase Launches QuickSummarizer to Help Indian SMEs Understand Complex Legal Documents in Minutes</h2><p style="margin-top:9px">LegalEase today announced QuickSummarizer, an AI-powered document-understanding capability that converts dense legal documents into concise, plain-language explanations of key obligations, risks and important clauses.</p><p>It helps founders, procurement, sales, operations and legal teams get to the important points faster while keeping qualified legal counsel in the loop for decisions requiring expert judgment.</p></div>
+<div class="card"><div class="card-head"><span class="card-icon purple"><i class="fa-solid fa-star"></i></span><h3>Customer Promises & Product USP</h3></div><div class="usp"><div class="usp-item"><i class="fa-solid fa-circle-check"></i><span><strong>Clarity:</strong> understand the essence quickly.</span></div><div class="usp-item"><i class="fa-solid fa-bolt"></i><span><strong>Speed:</strong> reduce time spent searching clauses.</span></div><div class="usp-item"><i class="fa-solid fa-shield-halved"></i><span><strong>Trust:</strong> source-aware outputs and clear limitations.</span></div><div class="usp-item"><i class="fa-solid fa-layer-group"></i><span><strong>USP:</strong> AI embedded in LegalEase's document workflow, context and enterprise controls.</span></div><div class="usp-item"><i class="fa-solid fa-scale-balanced"></i><span><strong>Safety:</strong> assistive understanding, not a replacement for legal advice.</span></div></div></div>
+</div>
+</section>
+
+<section class="section" id="value">
+<div class="section-title"><i class="fa-solid fa-chart-line"></i><h2>Business Value Model — Per Annum</h2><small>Caselet anchors + editable costs</small></div>
+<div class="metrics">
+<div class="metric"><div class="metric-value">₹1.00 Cr</div><div class="metric-label">Annualized retained ARR</div><div class="metric-note">₹1.5 Cr over 18 months</div></div>
+<div class="metric"><div class="metric-value green">₹0.50 Cr</div><div class="metric-label">Support savings / year</div><div class="metric-note">15% ticket reduction</div></div>
+<div class="metric"><div class="metric-value amber" id="implMetric">₹0.75 Cr</div><div class="metric-label">Implementation cost</div><div class="metric-note">Editable assumption</div></div>
+<div class="metric"><div class="metric-value purple" id="opsMetric">₹0.25 Cr</div><div class="metric-label">Operational cost / year</div><div class="metric-note">Editable assumption</div></div>
+</div>
+<div class="calculator" style="margin-top:8px">
+<div class="card"><div class="card-head"><span class="card-icon"><i class="fa-solid fa-sliders"></i></span><h3>Interactive Value Calculator</h3></div>
+<div class="control"><div class="control-row"><label>Churn reduction</label><output id="churnOut">5%</output></div><input id="churn" type="range" min="0" max="10" value="5" step=".5"></div>
+<div class="control"><div class="control-row"><label>Support-ticket reduction</label><output id="ticketOut">15%</output></div><input id="tickets" type="range" min="0" max="30" value="15"></div>
+<div class="control"><div class="control-row"><label>Implementation cost</label><output id="implOut">₹0.75 Cr</output></div><input id="impl" type="range" min="0" max="200" value="75" step="5"></div>
+<div class="control"><div class="control-row"><label>Operational cost / year</label><output id="opsOut">₹0.25 Cr</output></div><input id="ops" type="range" min="0" max="100" value="25" step="5"></div>
+<p class="micro">Anchor: 5% churn reduction ≈ ₹1.00 Cr annualized retained ARR; 15% ticket reduction ≈ ₹0.50 Cr annual support savings.</p></div>
+<div class="calc-result"><span class="pill" style="background:rgba(255,255,255,.12);color:#fff">Dynamic economics</span><p>Gross annual value</p><div class="big" id="gross">₹1.50 Cr</div><div class="calc-line"><span>Retained ARR</span><strong id="arrOut">₹1.00 Cr</strong></div><div class="calc-line"><span>Support savings</span><strong id="supportOut">₹0.50 Cr</strong></div><div class="calc-line"><span>Implementation</span><strong id="implCost">₹0.75 Cr</strong></div><div class="calc-line"><span>Operations</span><strong id="opsCost">₹0.25 Cr</strong></div><div class="calc-line"><strong>Net annual value</strong><strong id="net">₹0.50 Cr</strong></div><span class="status" id="status">PROCEED — positive annual value</span></div>
+</div>
+</section>
+
+<section class="section" id="poc">
+<div class="section-title"><i class="fa-solid fa-flask"></i><h2>QuickSummarizer — PoC Demo</h2><small>Functional front-end simulation</small></div>
+<div class="poc">
+<div class="poc-head"><div><strong><i class="fa-solid fa-file-contract" style="color:var(--green)"></i> Master Services Agreement.pdf</strong><small style="display:block">Uploaded on 12 May 2024 · 1.2 MB · 42 pages</small></div><span class="model-tag">Model: GPT-4o (PoC)</span></div>
+<div class="poc-body">
+<div class="doc-pane"><div class="doc-toolbar"><span><strong>Document Viewer</strong></span><span><i class="fa-solid fa-magnifying-glass-minus"></i> &nbsp; <i class="fa-solid fa-magnifying-glass-plus"></i> &nbsp; <i class="fa-solid fa-download"></i> &nbsp; 1 / 42</span></div><div class="paper"><h4>MASTER SERVICES AGREEMENT</h4><p>This Master Services Agreement (“Agreement”) is entered into on <strong>May 1, 2024</strong> by and between:</p><p><strong>Company A Inc.</strong>, a Delaware corporation (“Company A”) and <strong>Company B LLC</strong>, a limited liability company (“Company B”).</p><p class="clause">1. DEFINITIONS</p><p>“Confidential Information” means any non-public information disclosed by either party in connection with this Agreement.</p><p>“Effective Date” means the date on which this Agreement is fully executed by both parties.</p><p class="clause">2. SERVICES</p><p>Company B will provide professional services described in each applicable Statement of Work (SOW).</p><p class="clause">3. PAYMENT</p><p>Invoices are payable within <strong>30 days</strong> from invoice date.</p></div></div>
+<div class="ai-pane">
+<div class="tabs"><button class="tab active" data-tab="summary">Summary</button><button class="tab" data-tab="qa">Ask Questions</button><button class="tab" data-tab="terms">Key Terms</button><button class="tab" data-tab="risks">Risks & Obligations</button></div>
+<div class="tab-content">
+<div id="tab-summary" class="tab-pane"><div class="summary-box"><strong><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--green)"></i> AI Summary</strong><p>This Master Services Agreement (MSA) is between Company A Inc. and Company B LLC. It outlines the terms under which Company B will provide services to Company A. Key areas include confidentiality, term and termination, payment terms, intellectual property, liability limitations, and governing law.</p></div><div class="key-list"><div class="key"><i class="fa-solid fa-circle-check"></i><span><strong>Term:</strong> agreement is valid for 2 years from the Effective Date.</span></div><div class="key"><i class="fa-solid fa-circle-check"></i><span><strong>Services:</strong> services are provided per Statement of Work.</span></div><div class="key"><i class="fa-solid fa-circle-check"></i><span><strong>Payment:</strong> Net 30 days from invoice date.</span></div><div class="key"><i class="fa-solid fa-circle-check"></i><span><strong>Confidentiality:</strong> both parties protect shared information.</span></div><div class="key"><i class="fa-solid fa-circle-check"></i><span><strong>Termination:</strong> written notice is required under the agreement.</span></div></div></div>
+<div id="tab-qa" class="tab-pane" hidden><div class="summary-box"><strong>Ask Questions</strong><p>Ask the document about payment, term, confidentiality, obligations or risks.</p></div><div class="qa"><input id="question" placeholder="Ask a question about this document..."><button id="ask"><i class="fa-solid fa-arrow-right"></i></button></div><div class="answer" id="answer"></div></div>
+<div id="tab-terms" class="tab-pane" hidden><div class="key-list"><div class="key"><i class="fa-solid fa-tag"></i><span><strong>Effective Date:</strong> date the agreement is fully executed.</span></div><div class="key"><i class="fa-solid fa-tag"></i><span><strong>Confidential Information:</strong> non-public information shared under the agreement.</span></div><div class="key"><i class="fa-solid fa-tag"></i><span><strong>Statement of Work:</strong> defines scope, milestones and acceptance criteria.</span></div><div class="key"><i class="fa-solid fa-tag"></i><span><strong>Payment Terms:</strong> 30 days from invoice date.</span></div></div></div>
+<div id="tab-risks" class="tab-pane" hidden><div class="risk"><strong>Payment exposure:</strong> verify commercial acceptability of Net 30 terms.</div><div class="risk"><strong>SOW dependency:</strong> obligations depend on each Statement of Work.</div><div class="risk"><strong>Confidentiality:</strong> validate information handling obligations.</div><div class="risk"><strong>Legal review:</strong> AI explains content; it should not determine enforceability or replace qualified counsel.</div></div>
+</div>
+<div class="qa" id="quickqa"><input id="quickQuestion" placeholder="Ask a question about this document..."><button id="quickAsk"><i class="fa-solid fa-arrow-right"></i></button></div>
+<div class="disclaimer"><i class="fa-solid fa-shield-halved"></i> PoC only. AI output is simulated and informational. Verify important content against the source.</div>
+</div></div></div>
+</section>
+
+<section class="section" id="metrics">
+<div class="section-title"><i class="fa-solid fa-chart-column"></i><h2>Expected Impact & Success Metrics</h2></div>
+<div class="impact"><div class="impact-cards">
+<div class="impact-card"><i class="fa-solid fa-arrow-trend-down"></i><strong>5%</strong><small><b>Churn Reduction</b><br>~₹1.5 Cr retained ARR over 18 months</small></div>
+<div class="impact-card"><i class="fa-solid fa-headset"></i><strong>15%</strong><small><b>Support Ticket Reduction</b><br>~₹50 Lakh annual cost savings</small></div>
+<div class="impact-card"><i class="fa-solid fa-chart-line"></i><strong>↑</strong><small><b>Stickiness</b><br>Higher engagement and more frequent usage</small></div>
+<div class="impact-card"><i class="fa-solid fa-star"></i><strong>★</strong><small><b>Strategic Advantage</b><br>Differentiates LegalEase with AI-powered intelligence</small></div>
+</div>
+<div class="decision"><div class="card-head"><span class="card-icon purple"><i class="fa-solid fa-trophy"></i></span><h3>Recommended Decision (Caselet)</h3></div><div class="bigdecision">PROCEED</div><p>The estimated business value exceeds the expected costs and risks, subject to validation. Proceed with MVP and controlled rollout.</p></div></div>
+</section>
+
+<section class="section" id="learnings">
+<div class="section-title"><i class="fa-solid fa-graduation-cap"></i><h2>Key Learnings</h2></div>
+<div class="grid g3">
+<div class="card"><div class="card-head"><span class="card-icon"><i class="fa-solid fa-bullseye"></i></span><h3>Start with the business problem</h3></div><p>Do not justify GenAI because the technology exists. Link the capability to a customer problem and measurable business outcome.</p></div>
+<div class="card"><div class="card-head"><span class="card-icon green"><i class="fa-solid fa-calculator"></i></span><h3>Make value explicit</h3></div><p>Retention, support savings, adoption and engagement create a much stronger investment narrative than feature usage alone.</p></div>
+<div class="card"><div class="card-head"><span class="card-icon amber"><i class="fa-solid fa-shield-halved"></i></span><h3>Guardrails are part of the product</h3></div><p>For legal AI, groundedness, uncertainty, source traceability, privacy and escalation to counsel are first-class requirements.</p></div>
+</div>
+</section>
+
+<div class="footer"><strong>Source:</strong> Institute of Product Leadership — “Caselet: Business Value Modeling for Generative AI Feature: LegalEase - QuickSummarize.” &nbsp; | &nbsp; <strong>Prototype:</strong> static front-end simulation; no real LLM, backend, document upload or legal advice.</div>
+</div>
+</main>
+</div>
+<script>
+(() => {
+ const toast=m=>{let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style='position:fixed;right:20px;bottom:20px;background:#07152f;color:white;padding:10px 14px;border-radius:8px;z-index:99;font-size:11px';document.body.appendChild(t)}t.textContent=m;t.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display='none',1800)};
+ document.querySelectorAll('[data-target]').forEach(b=>b.addEventListener('click',()=>{let e=document.getElementById(b.dataset.target);if(e)e.scrollIntoView({behavior:'smooth',block:'start'});}));
+ document.getElementById('print').onclick=()=>window.print();
+ document.getElementById('decision').onclick=()=>{document.getElementById('metrics').scrollIntoView({behavior:'smooth'});toast('Decision section opened — recommended path: PROCEED');};
+ const churn=document.getElementById('churn'),tickets=document.getElementById('tickets'),impl=document.getElementById('impl'),ops=document.getElementById('ops');
+ const money=x=>'₹'+x.toFixed(2)+' Cr';
+ function calc(){let c=+churn.value,t=+tickets.value,i=+impl.value/100,o=+ops.value/100;let arr=1*(c/5),support=.5*(t/15),gross=arr+support,net=gross-i-o;
+ document.getElementById('churnOut').textContent=c.toFixed(1).replace('.0','')+'%';document.getElementById('ticketOut').textContent=t+'%';document.getElementById('implOut').textContent=money(i);document.getElementById('opsOut').textContent=money(o);
+ document.getElementById('gross').textContent=money(gross);document.getElementById('arrOut').textContent=money(arr);document.getElementById('supportOut').textContent=money(support);document.getElementById('implCost').textContent=money(i);document.getElementById('opsCost').textContent=money(o);document.getElementById('net').textContent=money(net);
+ document.getElementById('implMetric').textContent=money(i);document.getElementById('opsMetric').textContent=money(o);let s=document.getElementById('status');s.textContent=net>0?'PROCEED — positive annual value':'PAUSE — revisit economics';s.style.background=net>0?'#dcf8ed':'#ffe7e7';s.style.color=net>0?'#047857':'#b42332'}
+ [churn,tickets,impl,ops].forEach(x=>x.addEventListener('input',calc));calc();
+ document.querySelectorAll('.tab').forEach(tab=>tab.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));tab.classList.add('active');document.querySelectorAll('.tab-pane').forEach(x=>x.hidden=true);document.getElementById('tab-'+tab.dataset.tab).hidden=false;document.getElementById('quickqa').style.display=tab.dataset.tab==='qa'?'none':'flex'});
+ function respond(q){q=q.toLowerCase();let a='<strong>Document-grounded response:</strong> Please verify the exact clause in the source before making a legal decision.';if(q.includes('payment')||q.includes('pay'))a='<strong>Payment terms:</strong> invoices are payable within 30 days from invoice date. Verify the source clause for the complete remedy language.';else if(q.includes('confidential'))a='<strong>Confidentiality:</strong> both parties must protect non-public information shared under the agreement.';else if(q.includes('term')||q.includes('long'))a='<strong>Term:</strong> the demo summary presents a two-year term from the Effective Date.';else if(q.includes('risk')||q.includes('obligation'))a='<strong>Key review areas:</strong> payment exposure, SOW dependencies, confidentiality and termination. The AI should not determine enforceability.';else if(q.includes('terminate'))a='<strong>Termination:</strong> written notice is required under the demo agreement. Verify the exact notice period in the source.';let el=document.getElementById('answer');el.innerHTML=a;el.classList.add('show')}
+ document.getElementById('ask').onclick=()=>{let q=document.getElementById('question');if(q.value.trim())respond(q.value)};document.getElementById('question').onkeydown=e=>{if(e.key==='Enter')document.getElementById('ask').click()};
+ document.getElementById('quickAsk').onclick=()=>{let q=document.getElementById('quickQuestion');if(q.value.trim()){document.querySelector('[data-tab="qa"]').click();document.getElementById('question').value=q.value;respond(q.value)}};
+})();
+</script>
+</body>
+</html>
